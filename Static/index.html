@@ -1,0 +1,130 @@
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="./images/LOUIS-LOGO-NEW@0.5x.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="CodePen" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="./images/LOUIS-LOGO-NEW@0.5x.png"
+    />
+    <link
+      rel="mask-icon"
+      type="image/png"
+      href="./images/LOUIS-LOGO-NEW@0.5x.png"
+      color="#111"
+    />
+    <title>Home | Louis Young</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/waves.css" />
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+    </script>
+  </head>
+
+  <body translate="no">
+
+    <div class="header">
+      <!--Content before waves-->
+      <header class="header">
+        <h1 class="header-title">HOME |  LOUIS·YOUNG</h1>
+        <p class="header-subtitle">2021 |&nbsp;louisyoung.work</p>
+      </header>
+
+      <main class="container main-container">
+        <div href="/log.html" class="item flex-item" onclick="goLogs()">
+          <i class="loader --2"></i>
+          <p>Logs</p>
+        </div>
+        <div class="item">
+          <i class="loader --9"></i>
+        </div>
+        <div class="item">
+          <i class="loader --3"></i>
+        </div>
+
+        <div class="item">
+          <i class="loader --4"></i>
+        </div>
+        <div href="#" class="item flex-item" onclick="goHome()">
+          <i class="loader --1"></i>
+          <p>Home</p>
+        </div>
+        <div class="item">
+          <i class="loader --5"></i>
+        </div>
+
+        <div class="item">
+          <i class="loader --6"></i>
+        </div>
+        <div class="item">
+          <i class="loader --8"></i>
+        </div>
+        <div class="item flex-item" onclick="goChange()">
+          <i class="loader --7"></i>
+          <p>Change</p>
+        </div>
+      </main>
+
+    </div>
+    <!--Header ends-->
+      <!--Waves Container-->
+      <div>
+        <svg
+          class="waves"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+          shape-rendering="auto"
+        >
+          <defs>
+            <path
+              id="gentle-wave"
+              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+            ></path>
+          </defs>
+          <g class="parallax">
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="0"
+              fill="rgba(255,255,255,0.7"
+            ></use>
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="3"
+              fill="rgba(255,255,255,0.5)"
+            ></use>
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="5"
+              fill="rgba(255,255,255,0.3)"
+            ></use>
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff"></use>
+          </g>
+        </svg>
+      </div>
+      <!--Waves end-->
+    <!--Content starts-->
+
+    <!--Content ends-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
+
+<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+<!--<script src="./js/index.js"></script>-->

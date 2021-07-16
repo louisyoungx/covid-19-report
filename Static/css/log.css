@@ -1,0 +1,221 @@
+/*@import url(https://fonts.useso.com/css?family=Lato:300:400);*/
+
+body {
+margin: 0;
+}
+
+h1 {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 48px;
+}
+
+p {
+    font-family: "Lato", sans-serif;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(
+            60deg,
+            rgba(84, 58, 183, 1) 0%,
+            rgba(0, 172, 193, 1) 100%
+    );
+    color: white;
+}
+
+.logo {
+    width: 50px;
+    fill: white;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.inner-header {
+    height: 80vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    /*Flexbox for containers*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.content {
+    position: relative;
+    text-align: center;
+    background-color: white;
+}
+
+.glass {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    height: 80vh;
+    border-radius: 5vw;
+    background: rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.3));
+}
+
+.glass-container {
+    width: 60vw;
+    height: 70vh;
+    margin: 2vh;
+}
+
+#glass-text {
+    font-size: 40px;
+    background-color: rgba(255, 255, 255, 0);
+    scrollbar-arrow-color: rgba(255, 255, 255, 0);
+    scrollbar-highlight-color: rgba(255, 255, 255, 0);
+    scrollbar-base-color: rgba(255, 255, 255, 0);
+}
+
+.glass-content {
+    background-color: rgba(255, 255, 255, 0);
+    scrollbar-arrow-color: rgba(255, 255, 255, 0);
+    scrollbar-highlight-color: rgba(255, 255, 255, 0);
+    scrollbar-base-color: rgba(255, 255, 255, 0);
+    width: 60vw;
+    height: 70vh;
+    border: 0;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 35px;
+    color: rgba(37, 37, 37, 0.76);
+}
+
+#glass-text {
+    overflow: auto;
+    height: 70vh;
+}
+
+.glass-content:focus {
+    border: 0;
+    outline: none;
+}
+
+.glass-item-list {
+    color: #fff;
+    text-align: left;
+}
+
+.glass-item {
+    border-radius: 50px;
+}
+
+.item-time {
+    color: #fff;
+    background-color: #80BEAF;
+    text-align: center;
+    font-size: 40px;
+}
+
+.item-module {
+    background-color: #F2A490;
+}
+
+.item-content {
+    background-color: #5D7599;
+}
+
+.buttom-title {
+    font-size: 28px !important;
+}
+
+/* Animation */
+
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/*Shrinking for PC*/
+@media only screen and (min-device-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .content {
+        height: auto;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .glass {
+        width: 35vw;
+        border-radius: 1vw;
+    }
+
+    .glass-container {
+        width: 33vw;
+    }
+
+    #glass-text {
+        font-size: 20px;
+    }
+
+    .item-time {
+        font-size: 20px;
+    }
+
+    .waves {
+        height: 5vh;
+    }
+}
