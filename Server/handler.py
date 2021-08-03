@@ -1,10 +1,13 @@
-import os, json, urllib.parse
+import os, json
+import time
+
 from Logger.logger import logger
 from http.server import BaseHTTPRequestHandler
 from Config.settings import config
-from Message.message import sendFriendMessage
 
 # Document https://docs.python.org/3.9/library/http.server.html
+from Server.url import urls
+
 
 class RequestHandler(BaseHTTPRequestHandler):
     '''处理请求并返回页面'''
@@ -99,17 +102,20 @@ class RequestHandler(BaseHTTPRequestHandler):
     def api(self, url, request_data):
         # ----------------------------------------------------------------
         # 此处写API
-        if (url == "/log"):
-            content = logger_records()
-        elif (url[:11] == "/changeInfo"):
-            changeInfo(request_data)
-            content = "200"
-        else:
-            content = "No Response"
+        content = urls(url, request_data)
 
         # ----------------------------------------------------------------
+        localtime = time.localtime(time.time())
+        date = \
+            localtime.tm_year.__str__() + '-' + \
+            localtime.tm_mon.__str__() + '-' + \
+            localtime.tm_mday.__str__() + ' ' + \
+            localtime.tm_hour.__str__() + ':' + \
+            localtime.tm_min.__str__() + ':' + \
+            localtime.tm_sec.__str__()
         jsondict = {}
         jsondict["data"] = content
+        jsondict["time"] = date
         res = json.dumps(jsondict)
         self.send_response(200)
         self.send_header("Content-Type", "text/html")
@@ -119,27 +125,3 @@ class RequestHandler(BaseHTTPRequestHandler):
 
     def noFound(self):
         self.file("/404.html")
-
-
-def changeInfo(request_data):
-    message = request_data["message"]
-    message = urllib.parse.unquote(message)
-    sendFriendMessage(message, 1462648167)
-
-def logger_records():
-    file_path = config.path() + config.settings("Logger", "FILE_PATH") + config.settings("Logger", "FILE_NAME")
-    file_page_file = open(file_path, 'r')
-    return str(file_page_file.read())
-
-
-# 返回码
-class ErrorCode(object):
-    OK = "HTTP/1.1 200 OK"
-    NOT_FOUND = "HTTP/1.1 404.html Not Found"
-
-# Content类型
-class ContentType(object):
-    HTML = 'text/html'
-    CSS = "text/css"
-    JavaScript = "application/javascript"
-    PNG = 'img/png'

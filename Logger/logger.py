@@ -1,8 +1,10 @@
+import os
 import logging
 import logging.handlers
 from Config.settings import config
 
 # 从config中查询所需数据
+path = config.path() + config.settings("Logger", "FILE_PATH")
 filename = config.path() + config.settings("Logger", "FILE_PATH") + config.settings("Logger", "FILE_NAME")
 maxBytes = config.settings("Logger", "MAX_BYTES")
 backupCount = config.settings("Logger", "AMOUNT")
@@ -18,6 +20,8 @@ class CustomFilter(logging.Filter):
         return record.msg
 
 def clearUpLogFile():
+    if not os.path.exists(path):
+        os.mkdir(path)
     with open(filename, "w") as file:
         file.seek(0)
         file.truncate()  # 清空文件
