@@ -6,7 +6,7 @@ from Logger.logger import logger
 
 def sendFriendMessage(message, userid):
     try:
-        URL = "www.louisyoung.site:8088"
+        URL = "192.168.1.72:8888"
         path = "sendFriendMessage"
         URL = "http://{}/{}".format(URL, path)
 
@@ -38,7 +38,7 @@ def sendFriendMessage(message, userid):
 
 def sendGroupMessage(message, groupid):
     try:
-        URL = "www.louisyoung.site:8088"
+        URL = "192.168.1.72:8888"
         path = "sendGroupMessage"
         URL = "http://{}/{}".format(URL, path)
 
